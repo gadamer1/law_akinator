@@ -3,6 +3,7 @@ import App, { AppInitialProps, AppContext } from "next/app";
 import { END } from "redux-saga";
 import "./styles.css";
 import { SagaStore, wrapper } from "../Components/store";
+import AppLayout from "../Layouts/AppLayout";
 
 class LawAkinator extends App<AppInitialProps> {
   public static getInitialProps = async ({ Component, ctx }: AppContext) => {
@@ -27,7 +28,11 @@ class LawAkinator extends App<AppInitialProps> {
 
   public render() {
     const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
+    return (
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
+    );
   }
 }
 

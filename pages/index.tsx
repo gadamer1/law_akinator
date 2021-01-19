@@ -5,7 +5,12 @@ interface Props {}
 function Index(props: Props) {
   const {} = props;
 
-  return <div className={styles.div}>dd</div>;
+  return (
+    <div>
+      <div className={styles.abcd}>home</div>
+      <div className={styles.blue}>blue</div>
+    </div>
+  );
 }
 
 export default Index;
