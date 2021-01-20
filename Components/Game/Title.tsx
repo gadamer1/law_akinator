@@ -16,7 +16,9 @@ function Title(props: Props) {
           <i className="fas fa-sync fa-spin"></i>
         </div>
       ) : (
-        <h1>{questions?.question}</h1>
+        <h1>
+          {questions?.results ? "결과가 나왔습니다!" : questions?.question}
+        </h1>
       )}
     </>
   );

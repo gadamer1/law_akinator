@@ -2,10 +2,12 @@ import {
   QUERYING_QUESTIONS_FAILURE,
   QUERYING_QUESTIONS_REQUEST,
   QUERYING_QUESTIONS_SUCCESS,
-  QUERYING_FIRST_QUESTION_REQUEST,
-  QUERYING_FIRST_QUESTION_SUCCESS,
-  QUERYING_FIRST_QUESTION_FAILURE,
   RESET_RESULTS,
+  DISCONNECT_SOCKET,
+  CONNECT_SOCKET_REQUEST,
+  CONNECT_SOCKET_SUCCESS,
+  CONNECT_SOCKET_FAILURE,
+  SAVE_RESULTS,
 } from "./actions";
 
 ///////////////STATES////////////////
@@ -32,7 +34,7 @@ export interface metaStates {
 export interface queryingQuestionsAction {
   type: typeof QUERYING_QUESTIONS_REQUEST;
   payload: {
-    answer: number;
+    question: string;
   };
 }
 export interface queryingQuestionsSuccess {
@@ -44,33 +46,51 @@ export interface queryingQuestionsFailure {
   errorCode: number;
 }
 
-export interface queryingFirstQuestionAction {
-  type: typeof QUERYING_FIRST_QUESTION_REQUEST;
+export interface connectSocketRequestAction {
+  type: typeof CONNECT_SOCKET_REQUEST;
+  payload: {
+    socket: any;
+  };
 }
-export interface queryingFirstQuestionSuccess {
-  type: typeof QUERYING_FIRST_QUESTION_SUCCESS;
-  result: questions;
+export interface connectSocketSuccessAction {
+  type: typeof CONNECT_SOCKET_SUCCESS;
+  result: any;
 }
-export interface queryingFirstQuestionFailure {
-  type: typeof QUERYING_FIRST_QUESTION_FAILURE;
+
+export interface connectSocketFailureAction {
+  type: typeof CONNECT_SOCKET_FAILURE;
   errorCode: number;
+}
+
+export interface disconnectSocket {
+  type: typeof DISCONNECT_SOCKET;
 }
 
 export interface resetResults {
   type: typeof RESET_RESULTS;
 }
 
+export interface saveResults {
+  type: typeof SAVE_RESULTS;
+  payload: {
+    results: any;
+  };
+}
+
 export type queryingActions =
   | queryingQuestionsAction
   | queryingQuestionsSuccess
   | queryingQuestionsFailure
-  | queryingFirstQuestionAction
-  | queryingFirstQuestionSuccess
-  | queryingFirstQuestionFailure
-  | resetResults;
+  | resetResults
+  | saveResults
+  | connectSocketRequestAction
+  | connectSocketSuccessAction
+  | connectSocketFailureAction
+  | disconnectSocket;
 
 export interface questionsStore {
   questions: questions | null;
+  socket: any;
   loadingStates: loadingStates;
   metaStates: metaStates;
 }

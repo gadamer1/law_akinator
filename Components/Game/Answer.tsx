@@ -10,14 +10,10 @@ function Answer() {
   );
 
   const { results } = useSelector((state: store) => state.questions.questions);
+  const { socket } = useSelector((state: store) => state.questions);
   const dispatch = useDispatch();
   const onClickAnswerButton = (number) => () => {
-    dispatch({
-      type: QUERYING_QUESTIONS_REQUEST,
-      payload: {
-        answer: number,
-      },
-    });
+    socket.emit("answer", { answer: number });
   };
 
   const AnswerComponent = () => {

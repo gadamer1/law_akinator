@@ -1,32 +1,33 @@
-import { all, takeLatest, put, call, delay, fork } from "redux-saga/effects";
+import {
+  all,
+  takeLatest,
+  put,
+  call,
+  delay,
+  fork,
+  takeEvery,
+} from "redux-saga/effects";
 import {
   QUERYING_QUESTIONS_SUCCESS,
   QUERYING_QUESTIONS_FAILURE,
   QUERYING_QUESTIONS_REQUEST,
-  QUERYING_FIRST_QUESTION_REQUEST,
-  QUERYING_FIRST_QUESTION_SUCCESS,
-  QUERYING_FIRST_QUESTION_FAILURE,
+  CONNECT_SOCKET_REQUEST,
+  CONNECT_SOCKET_SUCCESS,
+  CONNECT_SOCKET_FAILURE,
 } from "../reducers/questions/actions";
-import Axios from "axios";
-import { queryingQuestionsAction } from "../reducers/questions/interfaces";
-
-// function queryingQuestionsAPI(data) {
-//   return Axios.post("/questions", data.answer);
-// }
-
-let mockData = "!와 관련이 있습니까?";
+import {
+  queryingQuestionsAction,
+  connectSocketRequestAction,
+} from "../reducers/questions/interfaces";
 
 function* queryingQuestions(action: queryingQuestionsAction) {
   try {
-    // const questions = yield call(queryingQuestionsAPI, action.payload);
+    console.log(action);
     yield delay(1000);
-    let questions = mockData;
-
     yield put({
       type: QUERYING_QUESTIONS_SUCCESS,
       result: {
-        question: questions,
-        results: "결과입니다",
+        question: action.payload.question,
       },
     });
   } catch (e) {
@@ -38,38 +39,28 @@ function* queryingQuestions(action: queryingQuestionsAction) {
 }
 
 function* watchQueryingQuestions() {
-  yield takeLatest(QUERYING_QUESTIONS_REQUEST, queryingQuestions);
+  yield takeEvery(QUERYING_QUESTIONS_REQUEST, queryingQuestions);
 }
 
-// function queryingFirstQuestionAPI(data) {
-//   return Axios.post("/questions", data.answer);
-// }
-
-let mockData2 = "!!!!와 관련이 있습니까?";
-
-function* queryingFirstQuestion(action: queryingQuestionsAction) {
+function* connectSocketRequest(action: connectSocketRequestAction) {
   try {
-    // const questions = yield call(queryingFirstQuestionAPI, action.payload);
-    let questions = mockData2;
     yield delay(1000);
     yield put({
-      type: QUERYING_FIRST_QUESTION_SUCCESS,
-      result: {
-        question: questions,
-      },
+      type: CONNECT_SOCKET_SUCCESS,
+      result: action.payload.socket,
     });
   } catch (e) {
     console.error(e);
     yield put({
-      type: QUERYING_FIRST_QUESTION_FAILURE,
+      type: CONNECT_SOCKET_FAILURE,
     });
   }
 }
 
-function* watchQueryingFirstQuestion() {
-  yield takeLatest(QUERYING_FIRST_QUESTION_REQUEST, queryingFirstQuestion);
+function* watchConnectSocketRequest() {
+  yield takeLatest(CONNECT_SOCKET_REQUEST, connectSocketRequest);
 }
 
 export default function* questionsSaga() {
-  yield all([fork(watchQueryingQuestions), fork(watchQueryingFirstQuestion)]);
+  yield all([fork(watchQueryingQuestions), fork(watchConnectSocketRequest)]);
 }

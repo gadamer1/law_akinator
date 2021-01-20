@@ -4,9 +4,7 @@ import Answer from "./Answer";
 
 interface Props {}
 
-function RightSideComponent(props: Props) {
-  const {} = props;
-
+function RightSideComponent({ socket }) {
   return (
     <article>
       <Title />
