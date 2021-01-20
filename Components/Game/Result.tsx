@@ -1,11 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { store } from "../../reducers/types";
 
 interface Props {}
 
-function Result(props: Props) {
-  const {} = props;
-
-  return <div>result</div>;
+function Result({ results }) {
+  return <p>{results}</p>;
 }
 
 export default Result;

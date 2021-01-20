@@ -1,7 +1,7 @@
 import React from "react";
 import App, { AppInitialProps, AppContext } from "next/app";
 import { END } from "redux-saga";
-import "./styles.css";
+import "../styles/base.css";
 import { SagaStore, wrapper } from "../Components/store";
 import AppLayout from "../Layouts/AppLayout";
 

@@ -1,11 +1,15 @@
 import React from "react";
+import styles from "./StartButton.module.scss";
+import Link from "next/link";
 
-interface Props {}
-
-function StartButton(props: Props) {
+function StartButton(props) {
   const {} = props;
 
-  return <div>button</div>;
+  return (
+    <Link href="/game">
+      <button className={styles.startButton}>시작하기</button>
+    </Link>
+  );
 }
 
 export default StartButton;

@@ -1,11 +1,50 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { store } from "../../reducers/types";
+import { QUERYING_QUESTIONS_REQUEST } from "../../reducers/questions/actions";
+import Result from "./Result";
 
-interface Props {}
+function Answer() {
+  const { isQuerying } = useSelector(
+    (state: store) => state.questions.loadingStates
+  );
 
-function Answer(props: Props) {
-  const {} = props;
+  const { results } = useSelector((state: store) => state.questions.questions);
+  const dispatch = useDispatch();
+  const onClickAnswerButton = (number) => () => {
+    dispatch({
+      type: QUERYING_QUESTIONS_REQUEST,
+      payload: {
+        answer: number,
+      },
+    });
+  };
 
-  return <div>Answer</div>;
+  const AnswerComponent = () => {
+    return (
+      <ul>
+        <li onClick={onClickAnswerButton(0)}>아니요</li>
+        <li onClick={onClickAnswerButton(1)}>아닐겁니다</li>
+        <li onClick={onClickAnswerButton(2)}>모르겠네요</li>
+        <li onClick={onClickAnswerButton(3)}>그럴겁니다</li>
+        <li onClick={onClickAnswerButton(4)}>네</li>
+      </ul>
+    );
+  };
+
+  return (
+    <>
+      {isQuerying ? (
+        <div className="fa-3x">
+          <i className="fas fa-sync fa-spin"></i>
+        </div>
+      ) : results ? (
+        <Result results={results} />
+      ) : (
+        <AnswerComponent />
+      )}
+    </>
+  );
 }
 
 export default Answer;

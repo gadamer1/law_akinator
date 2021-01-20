@@ -1,0 +1,36 @@
+.startButton {
+  font-family: Hack, monospace;
+  background: var(--default-color);
+  color: var(--text-white-color);
+
+  cursor: pointer;
+  font-size: 2em;
+  padding: 1.5rem;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+
+  &::after {
+    font-weight: 400;
+    position: relative;
+
+    bottom: 0;
+    color: var(--text-white-color);
+    opacity: 0;
+  }
+
+  &:hover {
+    background: var(--primary-color);
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px var(--primary-color);
+    padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+
+    &::after {
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  }
+}
