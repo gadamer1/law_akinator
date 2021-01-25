@@ -13,7 +13,8 @@ function Header(props: Props) {
       <Link href="./">
       <img src={'https://ifh.cc/g/VyXTti.png'}></img>
       </Link>
-      <h1>판례분석 서비스</h1>
+      <h1>나홀LAW 판례분석 서비스</h1>
+      <div className={styles.line}><hr></hr></div>
 	  </div>
 </header>
 )

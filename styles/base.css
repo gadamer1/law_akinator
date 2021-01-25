@@ -87,7 +87,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: "Noto Serif KR", serif;
+  font-family: "Nanum Gothic", serif;
 }
 
 article,
@@ -122,21 +122,32 @@ table {
   border-spacing: 0;
 }
 
-h1,
-h2,
-h3,
+h1{
+  font-size: 30px;
+  /**index 페이지**/
+}
+h2{
+  font-size: 20px;
+  line-height: 300%;
+}
+h3{
+  font-size: 15px;
+  line-height: 300%;
+}
 h4,
-h5,
-h6{
+h5{
   line-height: 200%;
+  display: inline;
+}
+h6{
+  line-height: 300%;
 }
 header{
-  background: url('https://ifh.cc/g/jMH5Rg.jpg');
   text-align: center;
-  width: 100%;
   height: auto;
   position: relative;
   overflow: hidden;
+  margin-top: 0px;
 }
 body {
   font-family: Arial;
@@ -144,14 +155,19 @@ body {
 }
 footer {
   padding: 20px;
-  text-align: center;
   background: #ddd;
   margin-top: 20px;
+  height: 60px;
+  bottom: 0px;
+  width:100%;
+  position: fixed;
 }
 
 
 :root {
   --second-color: #00dffc;
+  --button-color: #3CC2FF;
+  --theme-color: #289AFF;
   --default-color: #008c9e;
   --primary-color: #005f6b;
   --danger-color: #343838;

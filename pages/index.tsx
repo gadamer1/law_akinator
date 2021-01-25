@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import Introduce from "../Components/Index/Introduce";
 import StartButton from "../Components/Index/StartButton";
 import AppLayout from '../Layouts/AppLayout'
+import Example from '../Components/Index/Example'
 interface Props {}
 
 function Index(props: Props) {
@@ -12,7 +13,8 @@ function Index(props: Props) {
     <AppLayout>
     <Introduce>
     </Introduce>
-  <StartButton/>
+    <Example></Example>
+    <StartButton/>
   </AppLayout>
   );
 }

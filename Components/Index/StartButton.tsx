@@ -6,9 +6,10 @@ function StartButton(props) {
   const {} = props;
 
   return (
-    <Link href="/game">
-      <button className={styles.startButton}>시작하기</button>
-    </Link>
+    <div><Link href="/game">
+    <button className={styles.startButton}>시작하기</button>
+  </Link></div>
+
   );
 }
 

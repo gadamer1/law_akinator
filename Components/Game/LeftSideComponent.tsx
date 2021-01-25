@@ -4,12 +4,9 @@ import styles from "./SideComponent.module.scss"
 const LeftSideComponent = () => {
   return (
     <div className={styles.leftcolumn}>
-      <div className={styles.card}>
       <aside>
       <Character />
-    </aside>
-      </div>
-    
+      </aside>    
     </div>
   );
 };

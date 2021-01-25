@@ -1,6 +1,6 @@
 .leftcolumn {   
     float: left;
-    width: 49%;
+    width: 45%;
     padding-left: 10px;
   }
   
@@ -10,11 +10,22 @@
     width: 49%;
     background-color: #f1f1f1;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 30px;
   }
   .card {
     background-color: white;
     padding: 20px;
     margin-top: 20px;
+  }
+  .lehends {
+    padding: 20px;
+    margin-top: 20px;
+    align-content: center;
+    >img{
+      margin-left: 30%;
+      align-content: center;
+      width: 300px;
+      height: 300px;
+    }
   }
   
