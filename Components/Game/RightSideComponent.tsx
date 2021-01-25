@@ -4,11 +4,11 @@ import Answer from "./Answer";
 
 interface Props {}
 
-function RightSideComponent({ socket }) {
+function RightSideComponent() {
   return (
     <article>
       <Title />
-      <Answer />
+      <Answer/>
     </article>
   );
 }

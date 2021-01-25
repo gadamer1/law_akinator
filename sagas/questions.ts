@@ -44,7 +44,6 @@ function* watchQueryingQuestions() {
 
 function* connectSocketRequest(action: connectSocketRequestAction) {
   try {
-    yield delay(1000);
     yield put({
       type: CONNECT_SOCKET_SUCCESS,
       result: action.payload.socket,

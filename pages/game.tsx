@@ -14,9 +14,9 @@ const backendURL = "localhost:5000";
 
 function Game() {
   const dispatch = useDispatch();
-  const socket = socketIOClient(backendURL);
 
   useEffect(() => {
+    const socket = socketIOClient(backendURL);
     dispatch({
       type: CONNECT_SOCKET_REQUEST,
       payload: {

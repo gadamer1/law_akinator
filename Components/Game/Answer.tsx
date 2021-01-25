@@ -11,7 +11,7 @@ function Answer() {
 
   const { results } = useSelector((state: store) => state.questions.questions);
   const { socket } = useSelector((state: store) => state.questions);
-  const dispatch = useDispatch();
+
   const onClickAnswerButton = (number) => () => {
     socket.emit("answer", { answer: number });
   };
@@ -36,8 +36,10 @@ function Answer() {
         </div>
       ) : results ? (
         <Result results={results} />
-      ) : (
+      ) : socket?.connected ? (
         <AnswerComponent />
+      ) : (
+        <p>오류 발생..</p>
       )}
     </>
   );
