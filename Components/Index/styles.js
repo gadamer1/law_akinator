@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import { CloseOutlined } from '@ant-design/icons';
+import styled, { createGlobalStyle } from "styled-components";
+import { CloseOutlined } from "@ant-design/icons";
 
 export const Global = createGlobalStyle`
   .slick-slide {
@@ -8,12 +8,18 @@ export const Global = createGlobalStyle`
   .ant-card-cover {
     transform: none !important;
   }
-`
+`;
 
 export const Overlay = styled.div`
   position: fixed;
+  padding: 6vw 12vw;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 5000;
   top: 0;
+  max-width: 80vw;
+  max-height: 80vw;
   left: 0;
   right: 0;
   bottom: 0;
@@ -25,7 +31,7 @@ export const Header = styled.header`
   position: relative;
   padding: 0;
   text-align: center;
-  
+
   & h1 {
     margin: 0;
     font-size: 17px;
@@ -36,6 +42,7 @@ export const Header = styled.header`
 
 export const SlickWrapper = styled.div`
   height: calc(100% - 44px);
+  padding: 0;
   background: #090909;
 `;
 
@@ -50,7 +57,7 @@ export const CloseBtn = styled(CloseOutlined)`
 
 export const Indicator = styled.div`
   text-align: center;
-  
+
   & > div {
     width: 75px;
     height: 30px;
@@ -65,14 +72,10 @@ export const Indicator = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  padding: 32px;
   text-align: center;
-  
+  vertical-align: middle;
   & img {
     margin: 0 auto;
-    max-height: 750px;
-    margin-top: 200px;
-    width: 500px;
-    height: 500px;
+    width: 45%;
   }
 `;

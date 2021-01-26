@@ -8,9 +8,8 @@ const AppLayout: FunctionComponent = ({ children }) => {
     <body>
       <Header />
       {children}
-      <Footer/>
+      <Footer />
     </body>
   );
 };
 export default AppLayout;
-
