@@ -56,7 +56,6 @@ const questionsReducer = (state = initialState, action: queryingActions) => {
         break;
       }
       case CONNECT_SOCKET_SUCCESS: {
-        draft.loadingStates.isQuerying = false;
         draft.metaStates.requestError = false;
         draft.socket = action.result;
         break;

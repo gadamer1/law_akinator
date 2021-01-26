@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import LeftSideComponent from "../Components/Game/LeftSideComponent";
-import AppLayout from '../Layouts/AppLayout'
+import AppLayout from "../Layouts/AppLayout";
 import RightSideComponent from "../Components/Game/RightSideComponent";
 import { useDispatch } from "react-redux";
 import socketIOClient from "socket.io-client";
-import styles from './game.module.scss'
+import styles from "./game.module.scss";
 import {
   CONNECT_SOCKET_REQUEST,
   QUERYING_QUESTIONS_REQUEST,
@@ -35,6 +35,7 @@ function Game() {
       });
     });
     socket.on("result", (results: any) => {
+      console.log(results);
       dispatch({
         type: SAVE_RESULTS,
         payload: {
@@ -47,11 +48,11 @@ function Game() {
   useEffect(() => {}, []);
   return (
     <AppLayout>
-    <div className={styles.row}>
-  <LeftSideComponent />
-  <RightSideComponent />
-  </div>
-</AppLayout>
+      <div className={styles.row}>
+        <LeftSideComponent />
+        <RightSideComponent />
+      </div>
+    </AppLayout>
   );
 }
 

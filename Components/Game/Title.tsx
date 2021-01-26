@@ -15,11 +15,7 @@ function Title(props: Props) {
         <div className=""></div>
       ) : (
         <h4>
-          {questions?.results
-            ? "결과가 나왔습니다!"
-            : socket?.connected
-            ? questions?.question
-            : "오류가 발생했습니다"}
+          {questions?.results ? "결과가 나왔습니다!" : questions?.question}
         </h4>
       )}
     </>
