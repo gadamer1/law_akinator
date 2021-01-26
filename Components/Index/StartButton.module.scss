@@ -1,4 +1,6 @@
 .startButton {
+  margin: 0 auto;
+    transform: translate(-50%, 0);
   font-family: Hack, monospace;
   background: var(--button-color);
   color: var(--text-white-color);
@@ -10,7 +12,7 @@
   border-radius: 10px;
   width: auto;
   position: relative;
-  left: 45.5%;
+  left: 49.7%;
   margin-top: 30px;
 
   &::after {
@@ -34,3 +36,4 @@
     }
   }
 }
+

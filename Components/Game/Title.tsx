@@ -14,13 +14,13 @@ function Title(props: Props) {
       {isQuerying ? (
         <div className=""></div>
       ) : (
-        <h1>
+        <h4>
           {questions?.results
             ? "결과가 나왔습니다!"
             : socket?.connected
             ? questions?.question
             : "오류가 발생했습니다"}
-        </h1>
+        </h4>
       )}
     </>
   );

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Overlay, Header, CloseBtn, SlickWrapper, ImgWrapper, Indicator, Global } from './styles';
 import Slick from 'react-slick';
-const images={
-    1:"https://ifh.cc/g/E0FoYM.jpg"
-}
+import Slider from 'react-slick';
+
+
+
+const images=['https://ifh.cc/g/E0FoYM.jpg','https://ifh.cc/g/VyXTti.png']
 const ImagesZoom = ({ onClose }) => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
     <Overlay>
@@ -16,24 +18,26 @@ const ImagesZoom = ({ onClose }) => {
       </Header>
       <SlickWrapper>
         <div>
-          <Slick
-            initialSlide={0}
-            afterChange={(slide) => setCurrentSlide(slide)}
-            infinite
-            arrows={false}
-            slidesToShow={1}
-            slidesToScroll={1}
+          <Slider
+          initialSlide={0}
+          afterChange={(slide) => setCurrentSlide(slide)}
+          infinite
+          slidesToShow={1}
+          slidesToScroll={1}
+          arrows={false}
           >
-              <ImgWrapper>
-                <img src={'https://ifh.cc/g/E0FoYM.jpg'} alt={'https://ifh.cc/g/E0FoYM.jpg'} />
+              {images.map((v) => (
+              <ImgWrapper key={v}>
+                <img src={v} alt={v} />
               </ImgWrapper>
-          </Slick>
+            ))}
+          </Slider>
           <Indicator>
             <div>
               {currentSlide + 1}
               {' '}
               /
-              {images.length}
+              {2}
             </div>
           </Indicator>
         </div>
