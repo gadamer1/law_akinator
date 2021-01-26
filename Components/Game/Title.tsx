@@ -12,9 +12,7 @@ function Title(props: Props) {
   return (
     <>
       {isQuerying ? (
-        <div className="fa-3x">
-          <i className="fas fa-sync fa-spin"></i>
-        </div>
+        <div className=""></div>
       ) : (
         <h1>
           {questions?.results

@@ -29,9 +29,7 @@ class LawAkinator extends App<AppInitialProps> {
 
   public render() {
     const { Component, pageProps } = this.props;
-    return (
-        <Component {...pageProps} />
-    );
+    return <Component {...pageProps} />;
   }
 }
 

@@ -122,27 +122,27 @@ table {
   border-spacing: 0;
 }
 
-h1{
+h1 {
   font-size: 30px;
   /**index 페이지**/
 }
-h2{
+h2 {
   font-size: 20px;
   line-height: 300%;
 }
-h3{
+h3 {
   font-size: 15px;
   line-height: 300%;
 }
 h4,
-h5{
+h5 {
   line-height: 200%;
   display: inline;
 }
-h6{
+h6 {
   line-height: 300%;
 }
-header{
+header {
   text-align: center;
   height: auto;
   position: relative;
@@ -159,15 +159,14 @@ footer {
   margin-top: 20px;
   height: 60px;
   bottom: 0px;
-  width:100%;
+  width: 100%;
   position: fixed;
 }
 
-
 :root {
   --second-color: #00dffc;
-  --button-color: #3CC2FF;
-  --theme-color: #289AFF;
+  --button-color: #3cc2ff;
+  --theme-color: #289aff;
   --default-color: #008c9e;
   --primary-color: #005f6b;
   --danger-color: #343838;

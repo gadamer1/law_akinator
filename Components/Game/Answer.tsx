@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../reducers/types";
-import { QUERYING_QUESTIONS_REQUEST } from "../../reducers/questions/actions";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 import Result from "./Result";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function Answer() {
   const { isQuerying } = useSelector(
@@ -31,9 +34,7 @@ function Answer() {
   return (
     <>
       {isQuerying ? (
-        <div className="fa-3x">
-          <i className="fas fa-sync fa-spin"></i>
-        </div>
+        <Spin indicator={antIcon} />
       ) : results ? (
         <Result results={results} />
       ) : socket?.connected ? (
