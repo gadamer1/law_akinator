@@ -18,7 +18,7 @@ function Answer() {
 
   const onClickAnswerButton = (number) => () => {
     console.log("checked = ", number);
-
+    
     socket.emit("answer", { answer: number });
   };
   const AnswerComponent = () => {
