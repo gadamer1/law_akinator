@@ -9,6 +9,7 @@ import {
   CONNECT_SOCKET_SUCCESS,
   CONNECT_SOCKET_FAILURE,
   SAVE_RESULTS,
+  SET_QUERYING,
 } from "./actions";
 import { queryingActions, questionsStore } from "./interfaces";
 
@@ -33,6 +34,10 @@ const mockQuestions = {
 const questionsReducer = (state = initialState, action: queryingActions) => {
   return produce(state, (draft) => {
     switch (action.type) {
+      case SET_QUERYING: {
+        draft.loadingStates.isQuerying = true;
+        break;
+      }
       case QUERYING_QUESTIONS_REQUEST: {
         draft.loadingStates.isQuerying = true;
         draft.metaStates.requestError = false;
@@ -76,7 +81,8 @@ const questionsReducer = (state = initialState, action: queryingActions) => {
       case SAVE_RESULTS: {
         draft.loadingStates.isQuerying = false;
         draft.metaStates.requestError = false;
-        draft.questions.results = action.payload.results;
+        const results = action.payload.results.split("\n");
+        draft.questions.results = results;
       }
 
       default:

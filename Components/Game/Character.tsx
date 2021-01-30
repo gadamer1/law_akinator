@@ -1,6 +1,6 @@
 import React from "react";
-import Image from 'next/image'
-import styles from './SideComponent.module.scss'
+import Image from "next/image";
+import styles from "./SideComponent.module.scss";
 interface Props {}
 
 function Character(props: Props) {
@@ -8,9 +8,11 @@ function Character(props: Props) {
 
   return (
     <div className={styles.lehends}>
-    <img src={"https://ifh.cc/g/E0FoYM.jpg"}></img>
+      <div className={styles.img}>
+        <Image src="/character2.jpg" width={500} height={500}></Image>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Character;

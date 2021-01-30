@@ -12,7 +12,7 @@ import {
 } from "../reducers/questions/actions";
 interface Props {}
 
-const backendURL = "localhost:5000";
+const backendURL = "https://34.64.124.190:5000";
 
 function Game() {
   const dispatch = useDispatch();

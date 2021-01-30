@@ -9,8 +9,9 @@ import {
   Global,
 } from "./styles";
 import Slider from "react-slick";
+import Image from "next/image";
 
-const images = ["https://ifh.cc/g/E0FoYM.jpg", "https://ifh.cc/g/VyXTti.png"];
+const images = ["/ex1.jpeg", "/ex2.jpeg"];
 const ImagesZoom = ({ onClose }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -32,7 +33,7 @@ const ImagesZoom = ({ onClose }) => {
         >
           {images.map((v) => (
             <ImgWrapper key={v}>
-              <img src={v} alt={v} />
+              <Image src={v} alt={v} width={800} height={1000} />
             </ImgWrapper>
           ))}
         </Slider>

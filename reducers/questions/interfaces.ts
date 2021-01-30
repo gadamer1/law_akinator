@@ -8,6 +8,7 @@ import {
   CONNECT_SOCKET_SUCCESS,
   CONNECT_SOCKET_FAILURE,
   SAVE_RESULTS,
+  SET_QUERYING,
 } from "./actions";
 
 ///////////////STATES////////////////
@@ -66,6 +67,10 @@ export interface disconnectSocket {
   type: typeof DISCONNECT_SOCKET;
 }
 
+export interface setQuerying {
+  type: typeof SET_QUERYING;
+}
+
 export interface resetResults {
   type: typeof RESET_RESULTS;
 }
@@ -86,7 +91,8 @@ export type queryingActions =
   | connectSocketRequestAction
   | connectSocketSuccessAction
   | connectSocketFailureAction
-  | disconnectSocket;
+  | disconnectSocket
+  | setQuerying;
 
 export interface questionsStore {
   questions: questions | null;

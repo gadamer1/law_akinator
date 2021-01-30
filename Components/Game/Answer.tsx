@@ -5,6 +5,7 @@ import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import Result from "./Result";
 import { Checkbox, Row, Col, Button } from "antd";
+import { SET_QUERYING } from "../../reducers/questions/actions";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -12,13 +13,15 @@ function Answer() {
   const { isQuerying } = useSelector(
     (state: store) => state.questions.loadingStates
   );
-
+  const dispatch = useDispatch();
   const { results } = useSelector((state: store) => state.questions.questions);
   const { socket } = useSelector((state: store) => state.questions);
 
   const onClickAnswerButton = (number) => () => {
     console.log("checked = ", number);
-    
+    dispatch({
+      type: SET_QUERYING,
+    });
     socket.emit("answer", { answer: number });
   };
   const AnswerComponent = () => {

@@ -5,7 +5,13 @@ import { store } from "../../reducers/types";
 interface Props {}
 
 function Result({ results }) {
-  return <p>{results}</p>;
+  return (
+    <>
+      {results.map((result) => (
+        <p>{result}</p>
+      ))}
+    </>
+  );
 }
 
 export default Result;
